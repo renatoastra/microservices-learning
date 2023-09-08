@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: docker.io/renatoastra/posts-client:latest
+          image: renatoastra/posts-client
 ---
 apiVersion: v1
 kind: Service

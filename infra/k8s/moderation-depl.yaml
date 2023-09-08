@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: moderation
-          image: docker.io/renatoastra/moderation:latest
+          image: renatoastra/moderation
 ---
 apiVersion: v1
 kind: Service

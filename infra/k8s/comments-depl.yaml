@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: comments
-          image: docker.io/renatoastra/comments:latest
+          image: renatoastra/comments
 ---
 apiVersion: v1
 kind: Service
