@@ -1,8 +1,8 @@
-apiVersion: skaffold/v2alpha3
+apiVersion: skaffold/v4beta3
 kind: Config
-deploy:
-  kubectl:
-    manifests:
+manifests:
+  manifests:
+    rawYaml:
       - ./infra/k8s/*
 build:
   local:
@@ -15,4 +15,44 @@ build:
       sync:
         manual:
           - src: 'src/**/*.js'
+            dest: .
+    - image: renatoastra/comments
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: renatoastra/event-bus
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: renatoastra/moderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: renatoastra/posts
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: renatoastra/query
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
             dest: .
